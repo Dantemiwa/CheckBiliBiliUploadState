@@ -24,36 +24,35 @@ class GetUploadStatus() :
         url = 'https://member.bilibili.com/video/upload.html'
         self.driver.get(url)
 
-    def WriteFile(self,msg):
+    def GetUploadStatusFromBiliBili(self,cancel_on_failure=False):
         try:
-            f = open('upload.txt','a') #实时写入text中，以防关机或者程序中断 
-            f.write(msg)
-            f.close()
-        except Exception as e:
-            print(e)
-            f.close()
-
-    def GetUploadStatusFromBiliBili(self):
-        try:
+            global timer ,count
+            count = 1
             print(self.driver.title) #从HTML的title里面可以获知当前页面的信息   
             listing = self.driver.find_elements_by_class_name("video-jam-state")
             dateTime = strftime("%Y-%m-%d %H:%M:%S", localtime()) + '\t'        
             print(strftime("%Y-%m-%d %H:%M:%S", localtime()),end="\t")
-            self.WriteFile(dateTime + listing)
+            msg = dateTime + listing[0].text + '\n'
+            f = open('upload.txt','a') #实时写入text中，以防关机或者程序中断 
+            f.write(msg)
+            f.close()
             for k in range(len(listing)):
                 print(listing[k].text)
             self.driver.refresh()#刷新页面
+           
         except Exception as e:
+            self.driver.refresh()#刷新页面
             print (e)   
 
 up = GetUploadStatus()
-time.sleep(5)
-timer = threading.Timer(5, up.GetUploadStatusFromBiliBili)
+timer = threading.Timer(30, up.GetUploadStatusFromBiliBili)
 timer.start()
-while(1):
-    
-
-   
-
-
-   
+count = 0
+while True:
+    if count == 1:
+        count = 0
+        #timer.cancel()
+        timer = threading.Timer(600, up.GetUploadStatusFromBiliBili)#定时运行
+        timer.start()
+        time.sleep(590)
+        
