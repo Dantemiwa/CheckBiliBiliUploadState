@@ -1,7 +1,7 @@
 # 检测B站审核状态，并进行数据分析
 本python项目用于检测B站的审核状态
 
-### B站的审核状态没有找到相应的api，其审核状态是用vue写的，无法直接通过request读取。
+### B站的审核状态没有找到相应的api，其审核状态是用vue写入的，无法直接通过request读取。
 ### 方便起见，用了selenium模块直接读取元素
 ### 此处我用的是chromedriver.exe，如果没有谷歌浏览器的，请到百度查找相应浏览器的webdriver,或者直接下载一个最新版的chrome浏览器
 
@@ -29,6 +29,4 @@ timer = threading.Timer(600, up.GetUploadStatusFromBiliBili)#600s定时运行
  time.sleep(590)#休眠590s
 ```
 ### 具体内容可见B站:
-<iframe frameborder="0" width="1920px" height="1080px" 
-src="https://www.bilibili.com/video/av95553466/" allowFullScreen="true">
-</iframe>
+<iframe src="//player.bilibili.com/player.html?aid=95553466&cid=163128842&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
