@@ -1,2 +1,15 @@
-# -B-
+# 检测B站审核状态，并进行数据分析
 本python项目用于检测B站的审核状态
+
+### B站的审核状态没有找到相应的api，其审核状态是用vue写的，无法直接通过request读取。
+### 方便起见，用了selenium模块直接读取元素
+### 此处我用的是chromedriver.exe，如果没有谷歌浏览器的，请到百度查找相应浏览器的webdriver,或者直接下载一个最新版的chrome浏览器
+
+#### shift+右键打开powershell，并键入
+```python
+pythonw upload.pyw 1>stdout.txt 2>stderr.txt
+```
+
+#### 此时程序进入后台运行，并弹出Chrome浏览器界面，登录以后，就可以正常地开始读取B站审核状态了
+#### 程序根目录下会产生一个upload.txt,里面就存储了当前时间和当前审核状态
+#### 在使用过程中请勿关闭chromedriver.exe以及浏览器
