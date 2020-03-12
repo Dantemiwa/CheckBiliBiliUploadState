@@ -30,5 +30,5 @@ timer = threading.Timer(600, up.GetUploadStatusFromBiliBili)#600s定时运行
 ```
 ### 具体内容可见B站:
 <iframe frameborder="0" width="1920px" height="1080px" 
-src="https://www.bilibili.com/video/av95553466/" allowfullscreen="true">
+src="https://www.bilibili.com/video/av95553466/" allowFullScreen="true">
 </iframe>
