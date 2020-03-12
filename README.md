@@ -29,6 +29,4 @@ timer = threading.Timer(600, up.GetUploadStatusFromBiliBili)#600s定时运行
  time.sleep(590)#休眠590s
 ```
 ### 具体内容可见B站:
-<video id="video" controls="" preload="none" poster="http://om2bks7xs.bkt.clouddn.com/2017-08-26-Markdown-Advance-Video.jpg">
-      <source id="mp4" src="https://www.bilibili.com/video/av95553466/" type="video/mp4">
-      </video>
+width="1920" height="1080" src="https://www.bilibili.com/video/av95553466/" allowfullscreen="">
